@@ -33,6 +33,33 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <configuration>
                     <includes>com.*</includes>
+                    <destFile>${project.basedir}/target/jacoco.exec</destFile>
+                    <excludes>
+                        <exclude>*.class</exclude>
+                    </excludes>
+                    <rules>
+                        <rule>
+                            <limits>
+                                <limit>
+                                    <counter>INSTRUCTION</counter>
+                                    <minmun>0.80</minmun>
+                                </limit>
+                                <limit>
+                                    <counter>CLASS</counter>
+                                    <value>MISSEDCOUNT</value>
+                                    <maximun>10</maximun>
+                                </limit>
+                                <limit>
+                                    <counter>LINE</counter>
+                                    <minimun>0.50</minimun>
+                                </limit>
+                                <limit>
+                                    <counter>BRANCH</counter>
+                                    <minimun>0.999</minimun>
+                                </limit>
+                            </limits>
+                        </rule>
+                    </rules>
                 </configuration>
                 <executions>
                     <execution>
