@@ -6,6 +6,7 @@ public class User {
     private String country;
     private String province;
     private String city;
+    @NotIn
     private String Community;
 
     public String getName() {

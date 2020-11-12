@@ -1,2 +1,8 @@
-package com.test.game;public class TestMain {
+package com.test.game;
+
+public class TestMain {
+
+    public static void main(String[] args) {
+
+    }
 }

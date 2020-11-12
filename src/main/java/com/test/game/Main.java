@@ -2,6 +2,7 @@ package com.test.game;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,6 +17,8 @@ public class Main {
         Class<? extends User> aClass = user.getClass();
         Field[] fields = aClass.getDeclaredFields();
         Arrays.stream(fields).distinct()
+                .filter(Objects::nonNull)
+                .filter(field -> field.getAnnotation(NotIn.class) == null)
                 .forEach(field -> {
                     try {
                         field.setAccessible(true);
